@@ -18,13 +18,14 @@ export const GlobalContext = createContext<globalContextType|undefined>(undefine
 export const ContextProvider = ({children}:{children:ReactNode})=>{
     const [user,setUser] = useState<string>("Ankit")
     const [data,setData] = useState<addressType>({id:1, address:"Delhi"})
+    const [language,setLanguage] = useState<string>("eng")
 
     
     const values = useMemo(
         ()=>({
-            user, setUser, data,setData
+            user, setUser, data,setData,language,setLanguage
         })
-    , [user,data])
+    , [user,data,language])
     return(
         <GlobalContext.Provider value={values}>
 {children}
