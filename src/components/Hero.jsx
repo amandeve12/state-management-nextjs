@@ -1,17 +1,19 @@
 "use client"
 
-import { GlobalContext } from "@/context/globalContext"
-import { useContext } from "react"
+import userStore from '@/store/useStore'
 
 
 
 const Hero =()=>{
-const {user,setUser,data} = useContext(GlobalContext)
+const zustandStates = userStore()
+console.log(zustandStates);
+
+const {increase,decrease,count} = zustandStates
     return(
         <>
-        {user}
-        {data.address}
-        <button onClick={()=>setUser("Aman")}>click</button>
+       <button onClick={increase}>increase </button>
+       {count}
+       <button onClick={decrease}>decreaes </button>
         </>
     )
 }
